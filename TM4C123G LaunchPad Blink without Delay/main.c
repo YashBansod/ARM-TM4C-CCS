@@ -63,9 +63,9 @@ void Timer0IntHandler(void)
     TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);
 
     // Read the current state of the GPIO pin and write back the opposite state
-    if (GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_2)){
+    if (GPIOPinRead(GPIO_PORTF_BASE, GPIO_PIN_3)){
         GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3, 0);
     } else{
-        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2, GPIO_PIN_2);
+        GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3, GPIO_PIN_3);
     }
 }

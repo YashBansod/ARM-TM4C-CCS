@@ -1,0 +1,1 @@
+"./ustdlib.obj" "./touch.obj" "./tm4c123gh6pm_startup_ccs.obj" "./images.obj" "./grlib_demo.obj" "./Kentec320x240x16_ssd2119_8bit.obj" "C:/TI/TivaWare_C_Series-1.1/driverlib/ccs/Debug/driverlib.lib" "C:/TI/TivaWare_C_Series-1.1/grlib/ccs/Debug/grlib.lib" "../grlib_demo_ccs.cmd" -l"libc.a" 

@@ -68,7 +68,7 @@ int main(void){
         ROM_ADCSequenceDataGet(ADC0_BASE, 0, ui32ADC0Value);
         // Calculate the Average of the Readings
         ui32ADCAvg = (ui32ADC0Value[0] + ui32ADC0Value[1] + ui32ADC0Value[2] + ui32ADC0Value[3]
-                + ui32ADC0Value[4] + ui32ADC0Value[5] + ui32ADC0Value[6] + ui32ADC0Value[6] + 4)/8;
+                + ui32ADC0Value[4] + ui32ADC0Value[5] + ui32ADC0Value[6] + ui32ADC0Value[7] + 4)/8;
     }
 }
 

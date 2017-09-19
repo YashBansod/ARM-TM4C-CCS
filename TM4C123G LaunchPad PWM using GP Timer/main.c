@@ -45,7 +45,7 @@ int main(void){
     
     // Remove the Lock present on Switch SW2 (connected to PF0) and commit the change
     HWREG(GPIO_PORTF_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
-    HWREG(GPIO_PORTF_BASE + GPIO_O_CR) |= GPIO_PIN_0 | GPIO_PIN_4;
+    HWREG(GPIO_PORTF_BASE + GPIO_O_CR) |= GPIO_PIN_0;
 
     // Set the PF1, PF2, PF3 as output and PF0, PF4 as Input
     GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);

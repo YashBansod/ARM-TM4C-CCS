@@ -9,7 +9,7 @@
  *              The PWM module .
  * @note        The tm4c123ghpm_startup_ccs.c contains the vector table for the
  *              microcontroller. It was modified to execute the specified ISR on
- *              Timer0A and PortF Interrupts.
+ *              PortF Interrupts.
  */
 /* -----------------------          Include Files       --------------------- */
 #include <stdint.h>                         // Library of Standard Integer Types

@@ -40,7 +40,7 @@ void QEI1IntHandler(void);
 
 /* -----------------------          Main Program        --------------------- */
 int main(void){
-    // Set the System clock to 80MHz and the PWM Module clock to 1.25 MHz
+    // Set the System clock to 80MHz
     ROM_SysCtlClockSet(SYSCTL_SYSDIV_2_5 |SYSCTL_USE_PLL |SYSCTL_OSC_MAIN |SYSCTL_XTAL_16MHZ);
 
     // Enable the clock for peripherals PortC and QEI1

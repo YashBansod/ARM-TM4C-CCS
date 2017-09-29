@@ -27,7 +27,7 @@
 #include "driverlib/uart.h"                 // Defines and Macros for the UART
 #include "driverlib/rom.h"                  // Defines and macros for ROM API of driverLib
 
-#define UART0_BAUDRATE 115200               // Macro for UART0 Baud rate
+#define UART0_BAUDRATE  115200              // Macro for UART0 Baud rate
 
 /* -----------------------      Global Variables        --------------------- */
 uint32_t ui32Period;                    // Variable to store the period to be inputed to Timer0

@@ -5,8 +5,7 @@
  * @brief       LED Button Control
  * @details     The program controls the RGB LEDs on the Tiva C board
  *              TM4C123G LaunchPad (with TM4C123GH6PM microcontroller) using
- *              the onboard switches SW1(PF4) and SW2(PF0). The Switch state is
- *              updated through continuous polling in the infinite loop.
+ *              the onboard switches SW1(PF4) and SW2(PF0).
  *              Different combinations of button presses cause different LEDs to glow.
  * @note        The SW2(PF0) is locked by default and has to be unlocked before use.
  */

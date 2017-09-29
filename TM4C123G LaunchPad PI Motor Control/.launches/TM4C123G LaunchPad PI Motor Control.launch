@@ -5,7 +5,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="${build_artifact:TM4C123G LaunchPad PI Motor Control}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="TM4C123G LaunchPad PI Motor Control"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:TM4C123G LaunchPad PI Motor Control}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="C:/Users\Yash Bansod\workspace_v7\TM4C123G LaunchPad PI Motor Control\Debug\TM4C123G LaunchPad PI Motor Control.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Stellaris In-Circuit Debug Interface/CORTEX_M4_0" value="C:/Users\Yash Bansod\workspace_v7\TM4C123G LaunchPad PI Motor Control\Release\TM4C123G LaunchPad PI Motor Control.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/TM4C123G LaunchPad PI Motor Control"/>
 </listAttribute>

@@ -26,8 +26,8 @@
 #include "driverlib/pin_map.h"              // Mapping of peripherals to pins for all parts
 #include "driverlib/rom.h"                  // Defines and macros for ROM API of driverLib
 
-#define VEL_INT_FREQ    10                  // Macro to store the Interrupt frequency of QEI1
-#define QEI1_PPR        2400                // Macro to store the PPR of the QEI1
+#define VEL_INT_FREQ    10000               // Macro to store the Interrupt frequency of QEI1
+#define QEI1_PPR        257125              // Macro to store the PPR of the QEI1
 
 /* -----------------------      Global Variables        --------------------- */
 volatile uint32_t ui32Qei1Vel;              // Variable to store the velocity of QEI1

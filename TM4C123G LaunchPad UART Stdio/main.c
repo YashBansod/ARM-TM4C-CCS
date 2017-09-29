@@ -77,6 +77,7 @@ int main(void){
     ui32Period = ROM_SysCtlClockGet() / 1000;
     ROM_TimerLoadSet(TIMER0_BASE, TIMER_A, ui32Period - 1);
 
+    // Configure the UART0 for Standard Input Outputs
     UARTStdioConfig(0, UART0_BAUDRATE, ROM_SysCtlClockGet());
     UARTprintf("Enter Text: \n");
 

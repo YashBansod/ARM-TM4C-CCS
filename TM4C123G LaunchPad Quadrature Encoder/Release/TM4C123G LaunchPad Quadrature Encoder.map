@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.1                     
 ******************************************************************************
->> Linked Thu Sep 28 13:08:17 2017
+>> Linked Thu Oct 05 01:01:47 2017
 
 OUTPUT FILE NAME:   <TM4C123G LaunchPad Quadrature Encoder.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000005f5

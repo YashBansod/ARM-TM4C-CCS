@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.1                     
 ******************************************************************************
->> Linked Sun Sep 17 23:19:59 2017
+>> Linked Thu Oct 05 01:00:16 2017
 
 OUTPUT FILE NAME:   <TM4C123G LaunchPad ADC Temp Sensor.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0000061d

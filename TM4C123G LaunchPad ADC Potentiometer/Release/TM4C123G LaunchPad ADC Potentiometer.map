@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.1                     
 ******************************************************************************
->> Linked Mon Sep 18 20:40:50 2017
+>> Linked Thu Oct 05 01:01:24 2017
 
 OUTPUT FILE NAME:   <TM4C123G LaunchPad ADC Potentiometer.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 000005c9

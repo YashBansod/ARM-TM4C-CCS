@@ -1,0 +1,1 @@
+"./PWM_config.obj" "./QEI_config.obj" "./UART_config.obj" "./main.obj" "./tm4c123gh6pm_startup_ccs.obj" "C:/ti/TivaWare_C_Series-2.1.4.178/driverlib/ccs/Debug/driverlib.lib" "../tm4c123gh6pm.cmd" -llibc.a 

@@ -25,7 +25,7 @@ static volatile int32_t i32DiffError = 0;           // Difference of Error in ti
 static volatile int32_t i32SumError = 0;            // Sum of Error in ticks
 
 static uint32_t ui32Period_PWM1_0;                  // Variable to store PWM time period
-static volatile uint16_t ui16Adjust_PWM1_0 = 0;     // Variable to store Duty Cycle of Servo
-static volatile uint16_t ui16AdjustOld_PWM1_0 = 0;  // Variable to store Old Duty Cycle of Servo
+static volatile int16_t i16Adjust_PWM1_0 = 0;       // Variable to store Duty Cycle of Servo
+static volatile int16_t i16AdjustOld_PWM1_0 = 0;  // Variable to store Old Duty Cycle of Servo
 
 #endif /* GLOBALVARIABLES_H_ */

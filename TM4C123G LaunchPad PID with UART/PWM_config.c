@@ -36,7 +36,7 @@ void PWM1_0_init(void){
     ROM_PWMGenPeriodSet(PWM1_BASE, PWM_GEN_0, ui32Period_PWM1_0);
 
     // Set the PWM duty cycle to a specified value
-    ROM_PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, ui16Adjust_PWM1_0 * ui32Period_PWM1_0 / 100);
+    ROM_PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, i16Adjust_PWM1_0 * ui32Period_PWM1_0 / 100);
     // Enable the PWM0 pin of the PWM Module 1 as output
     ROM_PWMOutputState(PWM1_BASE, PWM_OUT_0_BIT, true);
 

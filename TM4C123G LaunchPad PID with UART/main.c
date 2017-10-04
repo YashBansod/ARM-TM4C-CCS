@@ -84,7 +84,7 @@ void QEI1IntHandler(void){
     // Update the direction reading of the encoder
     i32Qei1Dir = ROM_QEIDirectionGet(QEI1_BASE);
     // Calculate the velocity in RPM
-    ui16Qei1Rpm = ui32Qei1Vel * VEL_INT_FREQ * 60 / QEI1_CPR;
+    ui16Qei1Rpm = (ui32Qei1Vel << VEL_INT_FREQ) * 60 / QEI1_CPR;
     // Update the PID loop
     PID_Update();
 }
@@ -112,53 +112,66 @@ void UART0IntHandler(void){
 
 // Function Definition for PID Control
 void PID_Update(void){
-    volatile uint32_t ui32P_Control = 0;
-    volatile uint32_t ui32I_Control = 0;
-    volatile uint32_t ui32D_Control = 0;
+    volatile int32_t i32P_Control = 0;
+    volatile int32_t i32I_Control = 0;
+    volatile int32_t i32D_Control = 0;
     int32_t i32ErrorOld = i32ErrorNew;
 
     // Calculate the Error and SumError for PI control
     i32ErrorNew = i32DesPosTick - ui32Qei1Pos;
-    ui32P_Control = abs(i32ErrorNew) >> K_P;
+    if (i32ErrorNew >= 0) i32P_Control = i32ErrorNew >> K_P;
+    else i32P_Control = -(abs(i32ErrorNew) >> K_P);
 
-    i32DiffError = (i32ErrorOld - i32ErrorNew);
-    ui32D_Control = abs(i32DiffError) >> K_D;
+    i32DiffError = (i32ErrorNew - i32ErrorOld);
+    if (i32DiffError >= 0) i32D_Control = i32DiffError >> K_D;
+    else i32D_Control = -(abs(i32DiffError) >> K_D);
 
     // Do not Use I_Control if P_Control gives >= 100% of Control signal
     // Also Limit I_Control to contribute max 50% of Control signal
-    if (ui32P_Control < 100){
-        if (ui32I_Control <= 50){
-            i32SumError += i32ErrorNew;
-            ui32I_Control = abs(i32SumError) >> K_I;
-        }else{
+    if (abs(i32P_Control) < 100){
+        i32SumError += i32ErrorNew;
+        if (i32SumError >= 0) i32I_Control = i32SumError >> K_I;
+        else i32I_Control = -(abs(i32SumError) >> K_I);
+
+        if (i32I_Control > 50) {
             i32SumError -= i32ErrorNew;
-            ui32I_Control = abs(i32SumError) >> K_I;
+            i32I_Control = 50;
+        }
+        else if (i32I_Control < -50) {
+            i32SumError -= i32ErrorNew;
+            i32I_Control = -50;
         }
     }
 
-    // Configure the Motor Direction according to the Error
-    if (i32ErrorNew > 5)
-        // Write the output value to the GPIO PortD to control the PD2 and PD3
-        ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2 | GPIO_PIN_3, GPIO_PIN_2);
-    else if (i32ErrorNew <= 5 && i32ErrorNew >= -5){
+    if (abs(i32ErrorNew) <= 5){
         // Write the output value to the GPIO PortD to control the PD2 and PD3
         ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2 | GPIO_PIN_3, 0x00);
         i32SumError = 0;
-    }else
-        // Write the output value to the GPIO PortD to control the PD2 and PD3
-        ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2 | GPIO_PIN_3, GPIO_PIN_3);
+    }
+    else {
+        // Adjust the PWM1_0 Duty Cycle according to P and I control.
+        i16Adjust_PWM1_0 = i32P_Control + i32I_Control + i32D_Control;
 
-    // Adjust the PWM1_0 Duty Cycle according to P and I control.
-    ui16Adjust_PWM1_0 = ui32P_Control + ui32I_Control - ui32D_Control;
-    // Limit the Control signal to 100% Duty Cycle.
-    if (ui16Adjust_PWM1_0 > 100) ui16Adjust_PWM1_0 = 100;
-    // Update PWM Duty Cycle only if Duty Cycle has changed
-    if (ui16Adjust_PWM1_0 != ui16AdjustOld_PWM1_0)
-        // Set the PWM duty cycle to a specified value
-        ROM_PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, ui16Adjust_PWM1_0 * ui32Period_PWM1_0 / 100);
+        if (i16Adjust_PWM1_0 < 0){
+            i16Adjust_PWM1_0 = abs(i16Adjust_PWM1_0);
+            // Write the output value to the GPIO PortD to control the PD2 and PD3
+            ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2 | GPIO_PIN_3, GPIO_PIN_3);
+        }
+        else
+            // Write the output value to the GPIO PortD to control the PD2 and PD3
+            ROM_GPIOPinWrite(GPIO_PORTD_BASE, GPIO_PIN_2 | GPIO_PIN_3, GPIO_PIN_2);
+
+        // Limit the Control signal to 100% Duty Cycle.
+        if (i16Adjust_PWM1_0 > 100) i16Adjust_PWM1_0 = 100;
+
+        // Update PWM Duty Cycle only if Duty Cycle has changed
+        if (i16Adjust_PWM1_0 != i16AdjustOld_PWM1_0)
+            // Set the PWM duty cycle to a specified value
+            ROM_PWMPulseWidthSet(PWM1_BASE, PWM_OUT_0, i16Adjust_PWM1_0 * ui32Period_PWM1_0 / 100);
+    }
 
     // Save the current calculated PWM Duty Cycle as old
-    ui16AdjustOld_PWM1_0 = ui16Adjust_PWM1_0;
+    i16AdjustOld_PWM1_0 = i16Adjust_PWM1_0;
 }
 
 // Function to concatenate strings

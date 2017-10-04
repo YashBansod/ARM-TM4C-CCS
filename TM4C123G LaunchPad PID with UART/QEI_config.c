@@ -21,7 +21,7 @@ void QEI1_init(void){
     ROM_GPIOPinConfigure(GPIO_PC6_PHB1);
 
     // Configure the QEI1 to increment for both PhA and PhB with maximum count of 0xFFFFFFFF
-    QEIConfigure(QEI1_BASE, QEI_CONFIG_CAPTURE_A_B | QEI_CONFIG_QUADRATURE, 4294967295);
+    ROM_QEIConfigure(QEI1_BASE, QEI_CONFIG_CAPTURE_A_B | QEI_CONFIG_QUADRATURE, 4294967295);
     // Configure the QEI1 for Velocity Calculation, Predivide Velocity by 1 at "VEL_INT_FREQ" Hz
     ROM_QEIVelocityConfigure(QEI1_BASE, QEI_VELDIV_1, ROM_SysCtlClockGet() >> VEL_INT_FREQ);
     ROM_QEIVelocityEnable(QEI1_BASE);

@@ -74,10 +74,10 @@ int main(void){
     ui32Period = ROM_SysCtlClockGet() / 1000;
     ROM_TimerLoadSet(TIMER0_BASE, TIMER_A, ui32Period - 1);
 
-    uint8_t ui8WelcomeText[12] = {'E','n','t','e','r',' ','T','e','x','t',':',' '};
+    uint8_t ui8WelcomeText[] = {"\fEnter Text: \n\r"};
 
     uint8_t iter;
-    for (iter = 0; iter<12; iter++ ) ROM_UARTCharPutNonBlocking(UART0_BASE, ui8WelcomeText[iter]);
+    for (iter = 0; iter<sizeof(ui8WelcomeText); iter++ ) ROM_UARTCharPutNonBlocking(UART0_BASE, ui8WelcomeText[iter]);
 
     while (1);
 }

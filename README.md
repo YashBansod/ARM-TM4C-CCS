@@ -98,7 +98,7 @@ This gives 3072 CPR of quadrature. Also the FPU is used for the floating point c
 ### [TM4C123G LaunchPad Ultrasonic HC-SR04](./TM4C123G&#32;LaunchPad&#32;Ultrasonic&#32;HC-SR04/)  
 **Ultrasonin HC-SR04** - This is a sample code for HC-SR04. The code calculates the distance of an obstacle from the 
 HC-SR04 sensor and publishes the data over the UART channel.  
-<img src="./images/ultrasonic.jpg" alt="HC-SR04 Ultrasonic Sensor" height="300">  
+<img src="./images/ultrasonic.png" alt="HC-SR04 Ultrasonic Sensor" height="300">  
 
 
 ### [TM4C123G LaunchPad Workshop](./TM4C123G&#32;LaunchPad&#32;Workshop/)  

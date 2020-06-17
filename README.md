@@ -103,4 +103,13 @@ HC-SR04 sensor and publishes the data over the UART channel.
 
 ### [TM4C123G LaunchPad Workshop](./TM4C123G&#32;LaunchPad&#32;Workshop/)  
 **TM4C123G LaunchPad Workshop** - This contains all the codes of  Tiva-C workshop.   
+  
+ ---
+   
+## Other similar repositories  
 
+- [**ARM-TM4C-IAR**](https://github.com/YashBansod/ARM-TM4C-IAR)  
+This repository contains all my practice codes of TM4C123GXL coded in IAR Workbench. The Texas Instruments Tiva C LaunchPad board TM4C123G is used for the code. The TM4C123GXL Launchpad has the TM4C123GH6PM microcontroller which is based on the ARM Cortex-M4F microcontroller architecture and clocked at 80 MHz (with 100 DMIPS). 
+
+- [**ARM-TMS570LC43x-CCS-HALCoGen**](https://github.com/YashBansod/ARM-TMS570LC43x-CCS-HALCoGen)  
+This repository contains all my practice codes/projects of Hercules TMS570LC43x Development Kit. The projects are made using embedded C on CCS 6 and HALCoGen. The TMS570LC4357 on the board is an Automotive grade MCU based on the ARM Cortex-R5F architecture clocked at 300 MHz. 
